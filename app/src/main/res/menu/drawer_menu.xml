@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/spaces"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="@string/fragment_spaces" />
+
+        <item
+            android:id="@+id/issues"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="@string/fragment_issues" />
+
+        <item
+            android:id="@+id/two_heads"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/fragment_two_heads" />
+
+    </group>
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/settings"
+            android:title="@string/fragment_settings" />
+
+    </group>
+
+</menu>

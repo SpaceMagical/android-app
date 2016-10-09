@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Space Magical</string>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    
+    <string name="fragment_spaces">Spaces</string>
+    <string name="fragment_issues">Issues</string>
+    <string name="fragment_two_heads">Two Heads</string>
+    <string name="fragment_settings">Settings</string>
 </resources>
