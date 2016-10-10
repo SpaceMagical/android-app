@@ -1,7 +1,8 @@
 package com.spacemagical.spacemagical.presenters
 
+import android.net.Uri
 import android.util.Log
-import com.spacemagical.spacemagical.fragments.SpacesView
+import com.spacemagical.spacemagical.views.SpacesView
 import com.spacemagical.spacemagical.models.Space
 import com.spacemagical.spacemagical.schedulers.IScheduler
 import com.spacemagical.spacemagical.services.SpaceService
@@ -36,5 +37,6 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
 
     override fun onSpaceClicked(space: Space) {
         Log.i("click", space.name)
+        view.showDetail(space)
     }
 }

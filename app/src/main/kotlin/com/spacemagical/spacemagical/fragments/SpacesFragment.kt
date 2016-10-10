@@ -1,7 +1,9 @@
 package com.spacemagical.spacemagical.fragments
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -16,6 +18,7 @@ import com.spacemagical.spacemagical.databinding.FragmentSpacesBinding
 import com.spacemagical.spacemagical.models.Space
 import com.spacemagical.spacemagical.presenters.SpacesPresenter
 import com.spacemagical.spacemagical.schedulers.BaseScheduler
+import com.spacemagical.spacemagical.views.SpacesView
 import java.util.*
 
 class SpacesFragment : Fragment(), SpacesView {
@@ -44,7 +47,9 @@ class SpacesFragment : Fragment(), SpacesView {
         binding?.spacesList?.adapter?.notifyDataSetChanged()
     }
 
-    override fun showDetail(spaceId: Int) {
+    override fun showDetail(space: Space) {
+        val uri = Uri.parse("spacemagical://spaces?id=${space.id}")
+        activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
     }
 
     override fun showLoadingDialog() {

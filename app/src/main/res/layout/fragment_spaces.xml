@@ -4,27 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/spacesList"
-            android:layout_width="352dp"
-            android:layout_height="535dp"
-            tools:listitem="@layout/adapter_space_item"
-            android:layout_marginStart="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintVertical_bias="0.45"/>
+            tools:listitem="@layout/adapter_space_item"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
 </layout>

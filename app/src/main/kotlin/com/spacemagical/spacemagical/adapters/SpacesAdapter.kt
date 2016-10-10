@@ -40,7 +40,7 @@ class SpacesAdapter: RecyclerView.Adapter<SpacesAdapter.ViewHolder> {
 
     override fun getItemCount(): Int = spaces?.size ?: 0
 
-    companion object {
+    object SpacesAdapterBinding {
         @BindingAdapter("imageUrl")
         @JvmStatic
         fun loadImage(imageView: ImageView, url: String) {

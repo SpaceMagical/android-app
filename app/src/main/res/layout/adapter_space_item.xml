@@ -9,40 +9,33 @@
         <variable name="presenter" type="com.spacemagical.spacemagical.presenters.SpaceAdapterPresenter"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="280dp">
+        android:layout_height="280dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="fitXY"
             app:srcCompat="@mipmap/ic_launcher"
             app:imageUrl="@{space.imageUrl}"
             android:id="@+id/spaceImage"
-            android:onClick="@{(view) -> presenter.onSpaceClicked(space)}"
-            android:layout_marginStart="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:onClick="@{(view) -> presenter.onSpaceClicked(space)}"/>
 
         <TextView
             android:text="@{space.name, default=SPACE}"
-            android:textColor="#aaa"
+            android:textColor="@color/materialWhite"
+            android:textSize="32sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spaceName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp"/>
+            android:layout_margin="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
 </layout>

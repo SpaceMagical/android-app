@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    
+    <color name="materialBlack">#34495e</color>
+    <color name="materialWhite">#ecf0f1</color>
+    <color name="materialPurple">#9b59b6</color>
+    <color name="materialBlue">#3498db</color>
+    <color name="materialRed">#e74c3c</color>
+    <color name="materialYellow">#f1c40f</color>
 </resources>
