@@ -1,14 +1,15 @@
 package com.spacemagical.spacemagical.presenters
 
+import android.util.Log
 import com.spacemagical.spacemagical.fragments.SpacesView
 import com.spacemagical.spacemagical.models.Space
 import com.spacemagical.spacemagical.schedulers.IScheduler
 import com.spacemagical.spacemagical.services.SpaceService
 
-class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresenter {
-    var spaces: List<Space>? = null
+class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresenter, SpaceAdapterPresenter {
+    private var spaces: List<Space>? = null
 
-    override fun init() {
+    private fun loadSpaces() {
         view.showLoadingDialog()
         SpaceService.getSpaces()
             .subscribeOn(scheduler.backgroundThread())
@@ -19,11 +20,12 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
                     view.setSpaces(it)
                 },
                 {},
-                {view.hideLoadingDialog()}
+                { view.hideLoadingDialog() }
             )
     }
 
     override fun resume() {
+        loadSpaces()
     }
 
     override fun pause() {
@@ -32,7 +34,7 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
     override fun destroy() {
     }
 
-    fun spaceClicked() {
-
+    override fun onSpaceClicked(space: Space) {
+        Log.i("click", space.name)
     }
 }

@@ -14,7 +14,7 @@ object SpaceService {
             }
 
             val spaces = ArrayList<Space>()
-            val space = Space(0, "test")
+            val space = Space(0, "test", "http://barcelonanavigator.com/wp-content/uploads/2013/05/betahaus-Barcelona.jpg")
             spaces.add(space)
             it.onNext(spaces)
             it.onCompleted()

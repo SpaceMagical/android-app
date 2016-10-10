@@ -1,7 +1,6 @@
 package com.spacemagical.spacemagical.models
 
-data class Space(
+data class Issue(
     val id: Int,
-    val name: String,
-    val imageUrl: String
+    val title: String
 )
