@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.activities.SpaceDetailActivity
 import com.spacemagical.spacemagical.adapters.SpacesAdapter
 import com.spacemagical.spacemagical.databinding.FragmentSpacesBinding
 import com.spacemagical.spacemagical.models.Space
@@ -40,6 +41,7 @@ class SpacesFragment : Fragment(), SpacesView {
     private fun init(binding: FragmentSpacesBinding?) {
         binding?.spacesList?.adapter = SpacesAdapter(context, ArrayList<Space>(), presenter!!)
         binding?.spacesList?.layoutManager = LinearLayoutManager(activity)
+        presenter?.init()
     }
 
     override fun setSpaces(spaces: List<Space>) {
@@ -48,8 +50,7 @@ class SpacesFragment : Fragment(), SpacesView {
     }
 
     override fun showDetail(space: Space) {
-        val uri = Uri.parse("spacemagical://spaces?id=${space.id}")
-        activity.startActivity(Intent(Intent.ACTION_VIEW, uri))
+        SpaceDetailActivity.startActivity(activity, space)
     }
 
     override fun showLoadingDialog() {

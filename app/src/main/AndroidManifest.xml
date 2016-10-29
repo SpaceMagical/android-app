@@ -22,8 +22,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="https" android:host="www.spacemagical.com"/>
-                <data android:scheme="spacemagical" android:host="spaces"/>
             </intent-filter>
         </activity>
     </application>

@@ -13,6 +13,7 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
     private fun loadSpaces() {
         view.showLoadingDialog()
         SpaceService.getSpaces()
+            .onBackpressureBuffer()
             .subscribeOn(scheduler.backgroundThread())
             .observeOn(scheduler.mainThread())
             .subscribe(
@@ -25,8 +26,11 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
             )
     }
 
-    override fun resume() {
+    override fun init() {
         loadSpaces()
+    }
+
+    override fun resume() {
     }
 
     override fun pause() {
