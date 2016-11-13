@@ -15,8 +15,8 @@ object UserService {
             }
 
             val users = ArrayList<User>()
-            val user1 = User(1, "Jack", "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg")
-            val user2 = User(2, "Json", "http://matchpredictions.in/wp-content/uploads/2015/09/MS-Dhoni-Cricinfo-Yahoo-Profile-Stats-Highlights.jpg")
+            val user1 = User(1, 1, "Jack", "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg")
+            val user2 = User(2, 1, "Json", "http://matchpredictions.in/wp-content/uploads/2015/09/MS-Dhoni-Cricinfo-Yahoo-Profile-Stats-Highlights.jpg")
             users.add(user1)
             users.add(user2)
             it.onNext(users)

@@ -1,6 +1,6 @@
 package com.spacemagical.spacemagical.models
 
-data class Issue(
+data class State(
     val id: Int,
-    val issueCategoryId: Int
+    val name: String
 )
