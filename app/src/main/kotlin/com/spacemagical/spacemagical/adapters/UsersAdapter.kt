@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.spacemagical.spacemagical.BR
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.models.JobType
 import com.spacemagical.spacemagical.models.User
+import com.spacemagical.spacemagical.services.JobTypeService
 import com.squareup.picasso.Picasso
 
 class UsersAdapter: RecyclerView.Adapter<UsersAdapter.ViewHolder> {

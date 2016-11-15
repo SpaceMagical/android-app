@@ -1,14 +1,14 @@
 package com.spacemagical.spacemagical.presenters
 
-import com.spacemagical.spacemagical.models.User
-import com.spacemagical.spacemagical.schedulers.BaseScheduler
 import com.spacemagical.spacemagical.schedulers.IScheduler
+import com.spacemagical.spacemagical.services.SpaceService
 import com.spacemagical.spacemagical.services.UserService
 import com.spacemagical.spacemagical.views.SpaceDetailView
 
 class SpaceDetailPresenter(val view: SpaceDetailView, val scheduler: IScheduler) : IPresenter {
 
-    override fun init() {
+    fun init(spaceId: Int) {
+        loadSpace(spaceId)
         loadUsers()
     }
 
@@ -22,6 +22,17 @@ class SpaceDetailPresenter(val view: SpaceDetailView, val scheduler: IScheduler)
 
     override fun destroy() {
 
+    }
+
+    private fun loadSpace(id: Int) {
+        SpaceService.get(id)
+            .observeOn(scheduler.backgroundThread())
+            .subscribeOn(scheduler.mainThread())
+            .subscribe(
+                { view.setSpace(it) },
+                {},
+                {}
+            )
     }
 
     private fun loadUsers() {

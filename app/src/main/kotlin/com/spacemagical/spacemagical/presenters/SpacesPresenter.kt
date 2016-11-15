@@ -26,7 +26,7 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
             )
     }
 
-    override fun init() {
+    fun init() {
         loadSpaces()
     }
 
