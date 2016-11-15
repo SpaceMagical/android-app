@@ -12,27 +12,51 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp">
+        android:padding="8dp">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@mipmap/ic_launcher"
-            app:imageUrl="@{user.iconUrl}"
-            android:id="@+id/userImage"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="25dp"
+            android:id="@+id/circularWrap"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                app:imageUrl="@{user.iconUrl}"
+                android:id="@+id/userImage"/>
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:text="@{user.name, default=USER}"
-            android:textColor="@color/materialWhite"
-            android:textSize="32sp"
+            android:textColor="@color/materialBlack"
+            android:textSize="28sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/userName"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/userImage"
-            android:layout_toEndOf="@+id/userImage"
+            android:layout_toRightOf="@+id/circularWrap"
+            android:layout_toEndOf="@+id/circularWrap"
             android:layout_marginLeft="14dp"
             android:layout_marginStart="14dp"/>
+
+        <TextView
+            android:text="Engineer"
+            android:textColor="@color/materialBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userName"
+            android:layout_toRightOf="@+id/circularWrap"
+            android:layout_toEndOf="@+id/circularWrap"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:id="@+id/jobType"/>
 
     </RelativeLayout>
 </layout>

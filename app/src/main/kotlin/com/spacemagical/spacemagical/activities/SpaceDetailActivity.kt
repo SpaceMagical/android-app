@@ -48,6 +48,7 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         binding?.toolbarLayout?.title = space.name
+        binding?.usersListCard?.setTitle("People in this space")
         presenter?.init()
     }
 

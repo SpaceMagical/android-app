@@ -15,7 +15,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="People in this place"
+                android:id="@+id/cardTitle"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
