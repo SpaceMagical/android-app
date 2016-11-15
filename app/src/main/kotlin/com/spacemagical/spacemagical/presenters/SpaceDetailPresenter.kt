@@ -25,7 +25,7 @@ class SpaceDetailPresenter(val view: SpaceDetailView, val scheduler: IScheduler)
     }
 
     private fun loadUsers() {
-        UserService.getUsers()
+        UserService.getAll()
             .onBackpressureBuffer()
             .observeOn(scheduler.backgroundThread())
             .subscribeOn(scheduler.mainThread())

@@ -6,7 +6,7 @@ import rx.Observable
 import java.util.*
 
 object UserService {
-    fun getUsers(): Observable<List<User>> {
+    fun getAll(): Observable<List<User>> {
         return Observable.create {
             try {
                 Thread.sleep(1000)

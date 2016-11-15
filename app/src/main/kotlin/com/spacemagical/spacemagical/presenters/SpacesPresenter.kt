@@ -12,7 +12,7 @@ class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresent
 
     private fun loadSpaces() {
         view.showLoadingDialog()
-        SpaceService.getSpaces()
+        SpaceService.getAll()
             .onBackpressureBuffer()
             .subscribeOn(scheduler.backgroundThread())
             .observeOn(scheduler.mainThread())
