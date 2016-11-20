@@ -1,5 +1,7 @@
 package com.spacemagical.spacemagical.activities
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -71,5 +73,12 @@ class MainActivity : AppCompatActivity(),
 
     fun setActionBarTitle(title: String) {
         supportActionBar?.title = title
+    }
+
+    companion object {
+        fun startActivity(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 }
