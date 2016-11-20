@@ -6,10 +6,8 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import com.spacemagical.spacemagical.R
-import com.spacemagical.spacemagical.components.UsersListCard
 import com.spacemagical.spacemagical.databinding.ActivitySpaceDetailBinding
 import com.spacemagical.spacemagical.models.Issue
 import com.spacemagical.spacemagical.models.Space
@@ -17,7 +15,6 @@ import com.spacemagical.spacemagical.models.User
 import com.spacemagical.spacemagical.presenters.SpaceDetailPresenter
 import com.spacemagical.spacemagical.schedulers.BaseScheduler
 import com.spacemagical.spacemagical.views.SpaceDetailView
-import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
@@ -41,7 +38,6 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
         binding?.issuesListCard?.setTitle("Issues in this space")
         val url = intent.getStringExtra("imageUrl")
         Picasso.with(this).load(url).into(binding?.spaceImage)
-        binding?.executePendingBindings()
         presenter?.init(intent.getIntExtra("spaceId", 0))
     }
 
@@ -69,6 +65,8 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
 
     override fun setSpace(space: Space) {
         binding?.toolbarLayout?.title = space.name
+        binding?.space = space
+        binding?.notifyChange()
     }
 
     override fun setUsers(users: List<User>) {

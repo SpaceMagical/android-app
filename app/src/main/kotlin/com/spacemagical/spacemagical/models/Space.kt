@@ -7,5 +7,6 @@ data class Space(
     val address: String,
     val name: String,
     val imageUrl: String,
-    val capacity: Int
+    val capacity: Int,
+    val description: String
 )
