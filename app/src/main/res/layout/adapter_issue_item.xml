@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="issue" type="com.spacemagical.spacemagical.models.Issue"/>
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:text="@{issue.issueCategory.name, default=Web}"
+            android:textColor="@color/materialBlack"
+            android:textSize="28sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/issueCategory"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"/>
+
+        <TextView
+            android:text="@{issue.user.name, default=Jack}"
+            android:textColor="@color/materialBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/issueCategory"
+            android:layout_toRightOf="@+id/issueCategory"
+            android:layout_toEndOf="@+id/issueCategory"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:id="@+id/userName"/>
+
+    </RelativeLayout>
+</layout>

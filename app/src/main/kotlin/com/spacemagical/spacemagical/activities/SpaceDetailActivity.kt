@@ -11,6 +11,7 @@ import android.view.MenuItem
 import com.spacemagical.spacemagical.R
 import com.spacemagical.spacemagical.components.UsersListCard
 import com.spacemagical.spacemagical.databinding.ActivitySpaceDetailBinding
+import com.spacemagical.spacemagical.models.Issue
 import com.spacemagical.spacemagical.models.Space
 import com.spacemagical.spacemagical.models.User
 import com.spacemagical.spacemagical.presenters.SpaceDetailPresenter
@@ -37,6 +38,7 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         binding?.usersListCard?.setTitle("People in this space")
+        binding?.issuesListCard?.setTitle("Issues in this space")
         val url = intent.getStringExtra("imageUrl")
         Picasso.with(this).load(url).into(binding?.spaceImage)
         binding?.executePendingBindings()
@@ -70,8 +72,11 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
     }
 
     override fun setUsers(users: List<User>) {
-        val card = binding?.root?.findViewById(R.id.usersListCard) as UsersListCard?
-        card?.setUsers(users)
+        binding?.usersListCard?.setUsers(users)
+    }
+
+    override fun setIssues(issues: List<Issue>) {
+        binding?.issuesListCard?.setIssues(issues)
     }
 
     companion object {

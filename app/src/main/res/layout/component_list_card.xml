@@ -24,7 +24,7 @@
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/usersList"
+                android:id="@+id/list"
                 tools:listitem="@layout/adapter_user_item">
 
             </android.support.v7.widget.RecyclerView>
