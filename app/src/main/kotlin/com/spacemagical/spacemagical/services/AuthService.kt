@@ -15,4 +15,17 @@ object AuthService {
             it.onCompleted()
         }
     }
+
+    fun check(token: String): Observable<Boolean> {
+        return Observable.create {
+            try {
+                Thread.sleep(1000)
+            } catch (e: InterruptedException) {
+                it.onError(e)
+            }
+
+            it.onNext(true)
+            it.onCompleted()
+        }
+    }
 }
