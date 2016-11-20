@@ -16,7 +16,7 @@ object IssueService {
                 it.onError(e)
             }
             val jobType = JobType(1, "engineer")
-            val user = User(1, "Jack", "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg", jobType)
+            val user = User(1, "Jack", "https://goo.gl/7n83ui", "https://goo.gl/lA6tBD", jobType)
             val issueCategory = IssueCategory(1, "Web")
             val issues = ArrayList<Issue>()
             val issue = Issue(1, issueCategory, user)
@@ -37,7 +37,7 @@ object IssueService {
             }
 
             val jobType = JobType(1, "engineer")
-            val user = User(1, "Jack", "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg", jobType)
+            val user = User(1, "Jack", "https://goo.gl/7n83ui", "https://goo.gl/lA6tBD", jobType)
             val issueCategory = IssueCategory(1, "Web")
             val issue = Issue(id, issueCategory, user)
             it.onNext(issue)

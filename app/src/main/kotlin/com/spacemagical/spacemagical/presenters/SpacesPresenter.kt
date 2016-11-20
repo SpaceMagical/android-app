@@ -7,7 +7,7 @@ import com.spacemagical.spacemagical.models.Space
 import com.spacemagical.spacemagical.schedulers.IScheduler
 import com.spacemagical.spacemagical.services.SpaceService
 
-class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresenter, SpaceAdapterPresenter {
+class SpacesPresenter(val view: SpacesView, val scheduler: IScheduler): IPresenter, SpacesAdapterPresenter {
     private var spaces: List<Space>? = null
 
     private fun loadSpaces() {

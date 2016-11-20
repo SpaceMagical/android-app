@@ -70,11 +70,15 @@ class SpaceDetailActivity : AppCompatActivity(), SpaceDetailView {
     }
 
     override fun setUsers(users: List<User>) {
-        binding?.usersListCard?.setUsers(users)
+        binding?.usersListCard?.setUsers(users, presenter!!)
     }
 
     override fun setIssues(issues: List<Issue>) {
         binding?.issuesListCard?.setIssues(issues)
+    }
+
+    override fun showUser(user: User) {
+        UserDetailActivity.startActivity(this, user)
     }
 
     companion object {

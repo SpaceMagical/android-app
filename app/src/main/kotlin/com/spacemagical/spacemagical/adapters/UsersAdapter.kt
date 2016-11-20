@@ -13,16 +13,19 @@ import com.spacemagical.spacemagical.BR
 import com.spacemagical.spacemagical.R
 import com.spacemagical.spacemagical.models.JobType
 import com.spacemagical.spacemagical.models.User
+import com.spacemagical.spacemagical.presenters.UsersAdapterPresenter
 import com.spacemagical.spacemagical.services.JobTypeService
 import com.squareup.picasso.Picasso
 
 class UsersAdapter: RecyclerView.Adapter<UsersAdapter.ViewHolder> {
     var inflater: LayoutInflater? = null
     var users: List<User>? = null
+    var presenter: UsersAdapterPresenter? = null
 
-    constructor(context: Context, users: List<User>): super() {
+    constructor(context: Context, users: List<User>, presenter: UsersAdapterPresenter): super() {
         inflater = LayoutInflater.from(context)
         this.users = users
+        this.presenter = presenter
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): UsersAdapter.ViewHolder =
@@ -31,6 +34,7 @@ class UsersAdapter: RecyclerView.Adapter<UsersAdapter.ViewHolder> {
     override fun onBindViewHolder(viewHolder: UsersAdapter.ViewHolder, position: Int) {
         val user = users?.get(position)
         viewHolder.binding?.setVariable(BR.user, user)
+        viewHolder.binding?.setVariable(BR.presenter, presenter)
         viewHolder.binding?.executePendingBindings()
     }
 

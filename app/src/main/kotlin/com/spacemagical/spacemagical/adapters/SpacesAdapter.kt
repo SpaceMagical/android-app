@@ -13,15 +13,15 @@ import android.widget.ImageView
 import com.spacemagical.spacemagical.BR
 import com.spacemagical.spacemagical.R
 import com.spacemagical.spacemagical.models.Space
-import com.spacemagical.spacemagical.presenters.SpaceAdapterPresenter
+import com.spacemagical.spacemagical.presenters.SpacesAdapterPresenter
 import com.squareup.picasso.Picasso
 
 class SpacesAdapter: RecyclerView.Adapter<SpacesAdapter.ViewHolder> {
     var inflater: LayoutInflater? = null
     var spaces: List<Space>? = null
-    var presenter: SpaceAdapterPresenter? = null
+    var presenter: SpacesAdapterPresenter? = null
 
-    constructor(context: Context, spaces: List<Space>, presenter: SpaceAdapterPresenter): super() {
+    constructor(context: Context, spaces: List<Space>, presenter: SpacesAdapterPresenter): super() {
         inflater = LayoutInflater.from(context)
         this.spaces = spaces
         this.presenter = presenter
