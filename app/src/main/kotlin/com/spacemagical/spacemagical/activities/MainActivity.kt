@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.fragments.IssuesFragment
 import com.spacemagical.spacemagical.fragments.SpacesFragment
 
 class MainActivity : AppCompatActivity(),
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity(),
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.activity_content, when (id) {
             R.id.spaces -> SpacesFragment()
+            R.id.issues -> IssuesFragment()
             else -> null
         })
         fragmentTransaction.commit()
