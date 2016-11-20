@@ -44,4 +44,17 @@ object IssueService {
             it.onCompleted()
         }
     }
+
+    fun create(issue: Issue): Observable<Issue> {
+        return Observable.create {
+            try {
+                Thread.sleep(1000)
+            } catch (e: InterruptedException) {
+                it.onError(e)
+            }
+
+            it.onNext(issue)
+            it.onCompleted()
+        }
+    }
 }

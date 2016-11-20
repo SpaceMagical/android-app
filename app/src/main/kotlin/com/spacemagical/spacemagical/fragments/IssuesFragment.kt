@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.activities.IssueCreateActivity
 import com.spacemagical.spacemagical.adapters.IssuesAdapter
 import com.spacemagical.spacemagical.databinding.FragmentIssuesBinding
 import com.spacemagical.spacemagical.models.Issue
@@ -27,7 +28,7 @@ class IssuesFragment : Fragment(), IssuesView {
         presenter = IssuesPresenter(this, BaseScheduler)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_issues, container, false)
-
+        binding?.createIssueButton?.setOnClickListener { this.showIssueCreator() }
         init(binding)
 
         return binding?.root
@@ -53,6 +54,10 @@ class IssuesFragment : Fragment(), IssuesView {
     override fun hideLoadingDialog() {
         progressDialog?.hide()
         progressDialog = null
+    }
+
+    override fun showIssueCreator() {
+        IssueCreateActivity.startActivity(activity)
     }
 
     override fun onResume() {

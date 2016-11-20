@@ -6,4 +6,5 @@ interface IssuesView {
     fun setIssues(issues: List<Issue>)
     fun showLoadingDialog()
     fun hideLoadingDialog()
+    fun showIssueCreator()
 }
