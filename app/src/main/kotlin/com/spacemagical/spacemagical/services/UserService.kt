@@ -17,8 +17,8 @@ object UserService {
 
             val jobType = JobType(1, "engineer")
             val users = ArrayList<User>()
-            val user1 = User(1, "Jack", "https://goo.gl/7n83ui", "https://goo.gl/lA6tBD", jobType)
-            val user2 = User(2, "Json", "https://goo.gl/uxQIOC", "https://goo.gl/lA6tBD", jobType)
+            val user1 = User(1, "Jack", "http://goo.gl/7n83ui", "http://www.planwallpaper.com/static/images/Desktop-Wallpaper-HD2.jpg", jobType)
+            val user2 = User(2, "Json", "http://goo.gl/uxQIOC", "http://www.planwallpaper.com/static/images/Desktop-Wallpaper-HD2.jpg", jobType)
             users.add(user1)
             users.add(user2)
             it.onNext(users)
@@ -35,7 +35,7 @@ object UserService {
             }
 
             val jobType = JobType(1, "engineer")
-            val user = User(1, "Jack", "https://goo.gl/7n83ui", "https://goo.gl/lA6tBD", jobType)
+            val user = User(1, "Jack", "http://goo.gl/7n83ui", "http://www.planwallpaper.com/static/images/Desktop-Wallpaper-HD2.jpg", jobType)
             it.onNext(user)
             it.onCompleted()
         }
