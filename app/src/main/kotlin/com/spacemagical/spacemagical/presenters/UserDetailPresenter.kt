@@ -7,6 +7,7 @@ import com.spacemagical.spacemagical.views.UserDetailView
 
 
 class UserDetailPresenter(val view: UserDetailView, val scheduler: IScheduler) : IPresenter {
+    var loadingCount = 0
 
     fun init(userId: Int) {
         loadUser(userId)
@@ -26,25 +27,41 @@ class UserDetailPresenter(val view: UserDetailView, val scheduler: IScheduler) :
     }
 
     private fun loadUser(id: Int) {
+        incrementLoadingCount()
         UserService.get(id)
             .onBackpressureBuffer()
-            .observeOn(scheduler.backgroundThread())
-            .subscribeOn(scheduler.mainThread())
+            .subscribeOn(scheduler.backgroundThread())
+            .observeOn(scheduler.mainThread())
             .subscribe(
                 { view.setUser(it) },
                 {},
-                {}
+                { decrementLoadingCount() }
             )
     }
 
     private fun loadIssues() {
+        incrementLoadingCount()
         IssueService.getAll()
-            .observeOn(scheduler.backgroundThread())
-            .subscribeOn(scheduler.mainThread())
+            .subscribeOn(scheduler.backgroundThread())
+            .observeOn(scheduler.mainThread())
             .subscribe(
                 { view.setIssues(it) },
                 {},
-                {}
+                { decrementLoadingCount() }
             )
+    }
+
+    private fun incrementLoadingCount() {
+        if (loadingCount == 0) {
+            view.showLoadingDialog()
+        }
+        ++loadingCount
+    }
+
+    private fun decrementLoadingCount() {
+        --loadingCount
+        if (loadingCount == 0) {
+            view.hideLoadingDialog()
+        }
     }
 }

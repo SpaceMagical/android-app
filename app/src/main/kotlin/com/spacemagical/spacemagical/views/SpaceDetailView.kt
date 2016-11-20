@@ -9,4 +9,6 @@ interface SpaceDetailView {
     fun setUsers(users: List<User>)
     fun setIssues(issues: List<Issue>)
     fun showUser(user: User)
+    fun showLoadingDialog()
+    fun hideLoadingDialog()
 }

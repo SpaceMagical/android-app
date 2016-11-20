@@ -1,5 +1,6 @@
 package com.spacemagical.spacemagical.activities
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 
@@ -16,6 +17,7 @@ import com.spacemagical.spacemagical.views.SpaceDetailView
 class SpaceDetailActivity : CoverCollapsedActivity(), SpaceDetailView {
     var presenter: SpaceDetailPresenter? = null
     var spaceDetailBinding: ActivitySpaceDetailBinding? = null
+    var progressDialog: ProgressDialog? = null
 
     override fun initChildLayout(binding: ViewDataBinding) {
         spaceDetailBinding = binding as ActivitySpaceDetailBinding
@@ -60,6 +62,17 @@ class SpaceDetailActivity : CoverCollapsedActivity(), SpaceDetailView {
 
     override fun setIssues(issues: List<Issue>) {
         spaceDetailBinding?.issuesListCard?.setIssues(issues)
+    }
+
+    override fun showLoadingDialog() {
+        progressDialog = ProgressDialog(this)
+        progressDialog?.setMessage("Loading...")
+        progressDialog?.show()
+    }
+
+    override fun hideLoadingDialog() {
+        progressDialog?.hide()
+        progressDialog = null
     }
 
     override fun showUser(user: User) {
