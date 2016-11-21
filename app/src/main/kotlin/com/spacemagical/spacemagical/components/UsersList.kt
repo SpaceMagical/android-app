@@ -7,7 +7,7 @@ import com.spacemagical.spacemagical.adapters.UsersAdapter
 import com.spacemagical.spacemagical.models.User
 import com.spacemagical.spacemagical.presenters.UsersAdapterPresenter
 
-class UsersListCard : ListCard {
+class UsersList : EmbeddedList {
 
     constructor(context: Context): super(context)
     constructor(context: Context, attrs: AttributeSet): super(context, attrs)

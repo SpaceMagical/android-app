@@ -9,11 +9,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.spacemagical.spacemagical.R
 
-open class ListCard : LinearLayout {
+open class EmbeddedList : LinearLayout {
     var container: View? = null
 
     init {
-        container = inflate(context, R.layout.component_list_card, this)
+        container = inflate(context, R.layout.component_embedded_list, this)
         val list = container?.findViewById(R.id.list) as RecyclerView?
         list?.layoutManager = LinearLayoutManager(context)
     }

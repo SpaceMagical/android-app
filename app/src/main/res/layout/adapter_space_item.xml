@@ -9,40 +9,56 @@
         <variable name="presenter" type="com.spacemagical.spacemagical.presenters.SpacesAdapterPresenter"/>
     </data>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8sp"
-        android:layout_marginLeft="8sp"
+        android:layout_marginRight="16sp"
+        android:layout_marginLeft="16sp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="8sp">
 
-        <RelativeLayout
-            android:orientation="vertical"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/ic_launcher"
+            app:imageUrl="@{space.imageUrl}"
+            android:id="@+id/spaceImage"
+            android:onClick="@{(view) -> presenter.onSpaceClicked(space)}"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
-                app:srcCompat="@mipmap/ic_launcher"
-                app:imageUrl="@{space.imageUrl}"
-                android:id="@+id/spaceImage"
-                android:onClick="@{(view) -> presenter.onSpaceClicked(space)}"/>
+        <TextView
+            android:text="@{space.name, default=SPACE}"
+            android:textColor="@color/materialBlack"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spaceName"
+            android:layout_below="@id/spaceImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@id/spaceName">
             <TextView
-                android:text="@{space.name, default=SPACE}"
-                android:textColor="@color/materialWhite"
-                android:textSize="32sp"
+                android:textSize="18sp"
+                android:textColor="@color/materialBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/spaceName"
-                android:layout_margin="16sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+                android:text="@string/space_address_icon"/>
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/materialBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{space.state.name, default=address}"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </layout>

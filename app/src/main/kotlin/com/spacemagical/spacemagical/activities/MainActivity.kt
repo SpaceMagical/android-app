@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.FragmentTransaction
+import android.support.v4.view.LayoutInflaterCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.spacemagical.spacemagical.R
 import com.spacemagical.spacemagical.data.UserPreference
 import com.spacemagical.spacemagical.fragments.IssuesFragment
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity(),
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        LayoutInflaterCompat.setFactory(layoutInflater, IconicsLayoutInflater(delegate))
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)

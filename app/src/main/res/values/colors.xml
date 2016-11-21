@@ -10,4 +10,6 @@
     <color name="materialBlue">#3498db</color>
     <color name="materialRed">#e74c3c</color>
     <color name="materialYellow">#f1c40f</color>
+
+    <color name="separator_gray">#ecf0f1</color>
 </resources>
