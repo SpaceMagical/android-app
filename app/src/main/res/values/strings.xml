@@ -6,6 +6,12 @@
 
     <string name="fragment_spaces">Spaces</string>
     <string name="fragment_issues">Issues</string>
-    <string name="fragment_two_heads">Two Heads</string>
+    <string name="fragment_profile">Profile</string>
     <string name="fragment_settings">Settings</string>
+
+    <string name="space">Space</string>
+    <string name="space_capacity_icon">{gmd-group}</string>
+    <string name="space_capacity">Capacity</string>
+    <string name="space_address_icon">{gmd-place}</string>
+    <string name="space_address">Address</string>
 </resources>

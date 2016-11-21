@@ -6,7 +6,7 @@
 
     <TextView
         android:textSize="24sp"
-        android:text="Space Magical"
+        android:text="@string/app_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

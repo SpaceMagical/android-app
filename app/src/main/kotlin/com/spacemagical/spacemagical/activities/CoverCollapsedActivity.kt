@@ -3,10 +3,12 @@ package com.spacemagical.spacemagical.activities
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
+import android.support.v4.view.LayoutInflaterCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
+import com.mikepenz.iconics.context.IconicsLayoutInflater
 import com.spacemagical.spacemagical.R
 import com.spacemagical.spacemagical.databinding.ActivityCoverCollapsedBinding
 import com.squareup.picasso.Picasso
@@ -15,6 +17,7 @@ abstract class CoverCollapsedActivity : AppCompatActivity() {
     var binding: ActivityCoverCollapsedBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        LayoutInflaterCompat.setFactory(layoutInflater, IconicsLayoutInflater(delegate))
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cover_collapsed)
         init(binding)

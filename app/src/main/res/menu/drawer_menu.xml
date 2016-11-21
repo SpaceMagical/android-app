@@ -6,18 +6,18 @@
 
         <item
             android:id="@+id/spaces"
-            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:icon="@mipmap/ic_room_black_24dp"
             android:title="@string/fragment_spaces" />
 
         <item
             android:id="@+id/issues"
-            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:icon="@mipmap/ic_assignment_black_24dp"
             android:title="@string/fragment_issues" />
 
         <item
-            android:id="@+id/two_heads"
-            android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/fragment_two_heads" />
+            android:id="@+id/profile"
+            android:icon="@mipmap/ic_account_circle_black_24dp"
+            android:title="@string/fragment_profile" />
 
     </group>
 
@@ -26,6 +26,7 @@
 
         <item
             android:id="@+id/settings"
+            android:icon="@mipmap/ic_settings_black_24dp"
             android:title="@string/fragment_settings" />
 
     </group>
