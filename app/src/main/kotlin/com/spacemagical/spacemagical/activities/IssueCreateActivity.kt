@@ -34,7 +34,7 @@ class IssueCreateActivity : AppCompatActivity(), IssueCreateView {
         val title = binding?.titleInput?.text.toString()
         val categoryId = binding?.categorySpinner?.selectedItemPosition
         val category = IssueCategory(categoryId!!, "")
-        val user = User(1, "Jack", "", "", JobType(0, ""))
+        val user = User(1, "Jack", "test@example.com", "", "", JobType(0, ""))
         val issue = Issue(0, category, user)
         presenter?.createIssue(issue)
     }

@@ -11,9 +11,13 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.data.UserPreference
 import com.spacemagical.spacemagical.fragments.IssuesFragment
 import com.spacemagical.spacemagical.fragments.SpacesFragment
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +43,18 @@ class MainActivity : AppCompatActivity(),
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this, activityContainer, toolbar, R.string.open_drawer, R.string.close_drawer)
         activityContainer?.addDrawerListener(actionBarDrawerToggle!!)
+
+        val userPreference = UserPreference(this)
+
+        val header = navigation.getHeaderView(0)
+        val coverImage = header.findViewById(R.id.coverImage) as ImageView
+        Picasso.with(this).load(userPreference.coverUrl).into(coverImage)
+        val iconImage = header.findViewById(R.id.iconImage) as ImageView
+        Picasso.with(this).load(userPreference.iconUrl).into(iconImage)
+        val userName = header.findViewById(R.id.userName) as TextView
+        userName.text = userPreference.name
+        val userEmail = header.findViewById(R.id.userEmail) as TextView
+        userEmail.text = userPreference.email
 
         changeFragmentTo(R.id.spaces)
     }

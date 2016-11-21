@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.spacemagical.spacemagical.R
+import com.spacemagical.spacemagical.data.UserPreference
 import com.spacemagical.spacemagical.databinding.ActivityLoginBinding
 import com.spacemagical.spacemagical.presenters.LoginPresenter
 import com.spacemagical.spacemagical.schedulers.BaseScheduler
@@ -30,7 +31,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         binding?.loginButton?.setOnClickListener {
             val email = binding?.emailInput?.text.toString()
             val password = binding?.passwordInput?.text.toString()
-            presenter?.attemptLogin(email, password)
+            val userPreference = UserPreference(this)
+            presenter?.attemptLogin(email, password, userPreference)
         }
     }
 
@@ -46,6 +48,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun login(token: String) {
+        val userPreference = UserPreference(this)
+        userPreference.token = token
+        userPreference.applyChange()
         MainActivity.startActivity(this)
         finish()
     }
